@@ -1,0 +1,16 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/application
+
+hooks:
+  AfterInstall:
+    - location: scripts/unzip_and_prepare.sh
+      timeout: 300
+      runas: ec2-user
+
+  # ApplicationStart:
+  #   - location: scripts/start_server.sh
+  #     timeout: 300
+  #     runas: ec2-user
